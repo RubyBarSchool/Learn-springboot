@@ -24,6 +24,9 @@ public class Student {
     @ManyToMany(mappedBy = "studentSet")
     private Set<Home> homes = new HashSet<>();
 
+    @OneToOne(mappedBy = "student")
+    private Address address;
+
     public Student() {
     }
 
