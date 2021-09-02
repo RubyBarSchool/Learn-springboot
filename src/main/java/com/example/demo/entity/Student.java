@@ -12,6 +12,8 @@ import java.util.Set;
 @Table
 public class Student {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_student")
+    @SequenceGenerator(name = "seq_student",sequenceName = "stu_seq",initialValue = 1)
     private Long id;
     private String name;
     private String email;
