@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.ConfigurationProject.Response;
 import com.example.demo.entity.Student;
 import com.example.demo.service.CalculatorStudent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +20,11 @@ public class StudentController {
     private CalculatorStudent calculatorStudent;
 
     @GetMapping
-    public List<Student> getallStudent(){
-        return calculatorStudent.getAllStudent();
+    public ResponseEntity getallStudent(){
+        Response response = new Response();
+        response.setValue(calculatorStudent.getAllStudent());
+        response.setMessage(HttpStatus.OK+"");
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 
     @PostMapping
