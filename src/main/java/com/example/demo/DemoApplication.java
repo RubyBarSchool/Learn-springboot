@@ -53,7 +53,11 @@ public class DemoApplication {
 		//Function
 		System.out.println("Declarative Approach");
 		Function<Integer,Integer> add = integer -> ++integer ;
+		Function<Integer,Integer> mul = a -> a*10;
+
+		System.out.println(add.andThen(mul).apply(1));
 		System.out.println(add.apply(1));
+		// BiFunction
 	}
 	static  class Person{
 		private String name;
